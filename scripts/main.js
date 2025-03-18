@@ -84,11 +84,3 @@ function toggleMenu() {
     let menu = document.querySelector(".menu-items");
     menu.style.display = (menu.style.display === "none" || menu.style.display === "") ? "block" : "none";
 }
-
-  document.addEventListener("DOMContentLoaded", function () {
-    let path = window.location.pathname;
-    let cleanPath = path.replace(/\.(png|jpg|jpeg|html|css|js)$/i, "");
-    let CustomUrl = "ThunderTeamMC-Studios.github.io" + cleanPath + window.location.search + window.location.hash;
-
-    document.title = CustomUrl;
-    window.history.replaceState(null, null, CustomUrl);
