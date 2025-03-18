@@ -1,0 +1,340 @@
+:root {
+    --light-bg: linear-gradient(to bottom, #d4fc79, #96e6a1);
+    --dark-bg: linear-gradient(to bottom, #141E30, #243B55);
+    --light-navbar: #ffffff;
+    --dark-navbar: #000000;
+    --text-light: black;
+    --text-dark: white;
+    --accent-color: #facc15;
+    --transition-speed: 0.3s;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    background: var(--light-bg);
+    color: var(--text-light);
+    transition: background var(--transition-speed) ease-in-out, color var(--transition-speed) ease-in-out;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+.dark-mode {
+    background: var(--dark-bg);
+    color: var(--text-dark);
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: var(--light-navbar);
+    padding: 15px 30px;
+    border-radius: 25px;
+    width: 85%;
+    box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.2);
+    transition: background var(--transition-speed) ease-in-out;
+    margin-top: 15px;
+    position: sticky;
+    top: 15px;
+    z-index: 1000;
+}
+
+.dark-mode .navbar {
+    background: var(--dark-navbar);
+}
+
+.navbar ul {
+    list-style: none;
+    display: flex;
+    gap: 30px;
+    margin: 0;
+    padding: 0;
+}
+
+.navbar ul li {
+    color: var(--text-light);
+    cursor: pointer;
+    font-size: 18px;
+    transition: color var(--transition-speed) ease, transform var(--transition-speed) ease;
+    font-weight: bold;
+}
+
+.dark-mode .navbar ul li {
+    color: var(--text-dark);
+}
+
+.navbar ul li:hover {
+    transform: scale(1.15);
+    color: var(--accent-color);
+}
+
+.theme-toggle {
+    cursor: pointer;
+}
+
+.theme-toggle img {
+    width: 42px;
+    height: 42px;
+    transition: transform var(--transition-speed) ease;
+}
+
+.rotating {
+    animation: rotate360 0.5s linear;
+}
+
+@keyframes rotate360 {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.navbar ul li::after {
+    content: "";
+    position: absolute;
+    bottom: -3px;
+    left: 50%;
+    width: 0;
+    height: 3px;
+    background-color: var(--accent-color);
+    transition: width var(--transition-speed) ease, left var(--transition-speed) ease;
+}
+
+.navbar ul li:hover::after {
+    width: 100%;
+    left: 0;
+}
+
+.title {
+    text-align: center;
+    margin-top: 50px;
+    font-size: 60px;
+    font-weight: bold;
+    color: var(--text-light);
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.dark-mode .title {
+    color: var(--text-dark);
+}
+
+.subtitle {
+    text-align: center;
+    font-size: 20px;
+    font-weight: normal;
+    margin-top: 20px;
+    color: var(--text-light);
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+.dark-mode .subtitle {
+    color: var(--text-dark);
+}
+
+.section {
+    padding: 80px 20px;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.about-text {
+    font-size: 20px;
+    max-width: 800px;
+    margin: auto;
+    line-height: 1.6;
+    color: var(--text-light);
+}
+
+.dark-mode .about-text {
+    color: var(--text-dark);
+}
+
+.scroll-indicator {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 5px;
+    background: var(--accent-color);
+    z-index: 1000;
+    width: 0%;
+    transition: width var(--transition-speed) ease;
+}
+
+#back-to-top {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    padding: 10px 15px;
+    background: var(--accent-color);
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    display: none;
+    font-size: 18px;
+    transition: opacity var(--transition-speed) ease;
+}
+
+#back-to-top:hover {
+    opacity: 0.8;
+}
+
+/* Media Queries للشاشات الصغيرة (أقل من 768px) */
+@media (max-width: 768px) {
+    .navbar {
+        width: 90%;
+        padding: 10px 20px;
+    }
+
+    .navbar ul {
+        flex-direction: column;
+        gap: 10px;
+        align-items: center;
+    }
+
+    .navbar ul li {
+        font-size: 16px;
+    }
+
+    .title {
+        font-size: 40px;
+        margin-top: 30px;
+    }
+
+    .subtitle {
+        font-size: 16px;
+    }
+
+    .section {
+        padding: 60px 15px;
+    }
+
+    .about-text {
+        font-size: 16px;
+    }
+
+    #back-to-top {
+        padding: 8px 12px;
+        font-size: 16px;
+    }
+
+    .menu-items {
+        display: none;
+    }
+}
+
+@media (max-width: 480px) {
+    .navbar {
+        width: 95%;
+        padding: 8px 15px;
+    }
+
+    .navbar ul li {
+        font-size: 14px;
+    }
+
+    .title {
+        font-size: 32px;
+        margin-top: 20px;
+    }
+
+    .subtitle {
+        font-size: 14px;
+    }
+
+    .section {
+        padding: 40px 10px;
+    }
+
+    .about-text {
+        font-size: 14px;
+    }
+
+    #back-to-top {
+        padding: 6px 10px;
+        font-size: 14px;
+    }
+
+@media (max-width: 1023px) {
+    .navbar {
+        width: 50%;
+        padding: 12px 20px;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .navbar ul {
+        display: none;
+        flex-direction: column;
+        gap: 15px;
+        width: 100%;
+        background: var(--light-navbar);
+        position: absolute;
+        top: 100%;
+        left: 0;
+        padding: 10px 0;
+        border-radius: 10px;
+        box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+    }
+
+    .navbar ul.active {
+        display: flex;
+    }
+
+    .navbar ul li {
+        font-size: 17px;
+        padding: 10px 0;
+        width: 100%;
+        text-align: center;
+    }
+
+    .menu-toggle {
+        display: block;
+        cursor: pointer;
+        font-size: 24px;
+        background: none;
+        border: none;
+        color: var(--text-light);
+    }
+
+    .dark-mode .menu-toggle {
+        color: var(--text-dark);
+    }
+
+    .title {
+        font-size: 45px;
+        margin-top: 40px;
+    }
+
+    .subtitle {
+        font-size: 18px;
+    }
+
+    .section {
+        padding: 70px 15px;
+    }
+
+    .about-text {
+        font-size: 18px;
+    }
+
+    #back-to-top {
+        padding: 9px 13px;
+        font-size: 17px;
+    }
+}

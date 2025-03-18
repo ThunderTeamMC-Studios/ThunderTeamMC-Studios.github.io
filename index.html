@@ -1,0 +1,55 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="ThunderTeam Studios - A Minecraft Mod Development Studio creating unique experiences for players.">
+    <title>ThunderTeam Studios</title>
+    <link rel="icon" type="image/png" href="images/favicon.jpg">
+    <link rel="stylesheet" href="styles/main.css" media="all">
+    <link rel="preload" href="./images/moon.png" as="image">
+    <link rel="preload" href="./images/sun.png" as="image">
+</head>
+<body>
+    <nav class="navbar">
+        <ul>
+            <li onclick="scrollToSection('home')">Home</li>
+            <li onclick="scrollToSection('projects')">Projects</li>
+            <li onclick="scrollToSection('contact')">Contact</li>
+            <li onclick="scrollToSection('about')">About</li>
+        </ul>
+        <div class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle Dark Mode">
+            <img id="theme-icon" src="./images/moon.png" alt="Toggle Theme">
+        </div>
+    </nav>
+
+    <div class="scroll-indicator"></div>
+
+    <section id="home" class="section">
+        <div class="title">ThunderTeam<br>Studios</div>
+        <div class="subtitle">Minecraft Mod Development Studio</div>
+    </section>
+
+    <section id="projects" class="section">
+        <h1>Our Projects</h1>
+        <p>Details about our Minecraft mods and other developments.</p>
+    </section>
+
+    <section id="contact" class="section">
+        <h1>Contact Us</h1>
+        <p>Get in touch with us for collaborations and inquiries.</p>
+    </section>
+
+    <section id="about" class="section">
+        <h1>About Us</h1>
+        <p class="about-desc">We make mods</p>
+        <h2>HealerPlusMC</h2>
+        <p class="about-text">Minecraft mod developer passionate about creating unique experiences.</p>
+    </section>
+
+    <button id="back-to-top" onclick="scrollToTop()">↑</button>
+
+    <script src="scripts/main.js"></script>
+</body>
+</html>
